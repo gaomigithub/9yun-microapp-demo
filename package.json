@@ -1,0 +1,17 @@
+{
+  "name": "microapp-monorepo-demo",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "dev": "pnpm -r --parallel --filter=./packages/* run dev",
+    "dev:main": "pnpm --filter=./packages/main run dev",
+    "dev:sub1": "pnpm --filter=./packages/sub-app-1 run dev"
+  },
+  "devDependencies": {
+    "pnpm": "^9.5.0"
+  },
+  "packageManager": "pnpm@9.5.0"
+}
