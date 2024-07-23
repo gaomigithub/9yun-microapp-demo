@@ -13,45 +13,67 @@
   }
  */
 
-import type { RouteRecordRaw } from "vue-router";
-import { PageEnum } from "@/enums/pageEnum";
-import Layout from "@/layout/default/index.vue";
+import { PageEnum } from '@/enums/pageEnum'
+import Layout from '@/layout/default/index.vue'
+import type { RouteRecordRaw } from 'vue-router'
 
-export const LAYOUT = () => Promise.resolve(Layout);
+export const LAYOUT = () => Promise.resolve(Layout)
 
-export const INDEX_ROUTE_NAME = Symbol();
+export const INDEX_ROUTE_NAME = Symbol()
 
 export const constantRoutes: Array<RouteRecordRaw> = [
-  // {
-  //     path: PageEnum.ERROR_404,
-  //     component: () => import('@/views/error/404.vue')
-  // },
-  {
-    path: PageEnum.ERROR_403,
-    component: () => import("@/views/error/403.vue"),
-  },
-  {
-    path: PageEnum.LOGIN,
-    component: () => import("@/views/account/login.vue"),
-  },
-  {
-    path: "/user",
-    component: LAYOUT,
-    children: [
-      {
-        path: "setting",
-        name: Symbol(),
-        component: () => import("@/views/user/setting.vue"),
-        meta: {
-          title: "个人设置",
-        },
-      },
-    ],
-  },
-];
+    {
+        name: Symbol('404'),
+        path: PageEnum.ERROR_404,
+        component: () => import('@/views/error/404.vue')
+    },
+    {
+        name: Symbol('403'),
+        path: PageEnum.ERROR_403,
+        component: () => import('@/views/error/403.vue')
+    },
+    {
+        path: PageEnum.LOGIN,
+        component: () => import('@/views/account/login.vue')
+    },
+    {
+        path: '/user',
+        component: LAYOUT,
+        children: [
+            {
+                path: 'setting',
+                name: Symbol(),
+                component: () => import('@/views/user/setting.vue'),
+                meta: {
+                    title: '个人设置'
+                }
+            }
+        ]
+    }
+    // {
+    //     path: '/microapp',
+
+    //     children: [
+    //         {
+    //             path: 'vue',
+    //             name: Symbol(),
+    //             component: () => import('@/views/microapp/vue/index.vue'),
+    //             meta: {
+    //                 title: 'vue-test'
+    //             },
+    //             children: [
+    //                 {
+    //                     path: '*',
+    //                     component: import('@/views/microapp/vue/index.vue')
+    //                 }
+    //             ]
+    //         }
+    //     ]
+    // }
+]
 
 export const INDEX_ROUTE: RouteRecordRaw = {
-  path: PageEnum.INDEX,
-  component: LAYOUT,
-  name: INDEX_ROUTE_NAME,
-};
+    path: PageEnum.INDEX,
+    component: LAYOUT,
+    name: INDEX_ROUTE_NAME
+}

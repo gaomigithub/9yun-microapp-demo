@@ -14,6 +14,19 @@ export default defineConfig({
     // base: '/admin/',
     server: {
         host: '0.0.0.0'
+        // proxy: {
+        //     '/api': {
+        //         // 匹配的请求路径前缀
+        //         target: 'http://your-backend-server-url.com', // 目标服务器地址
+        //         changeOrigin: true, // 允许跨域
+        //         rewrite: (path) => path.replace(/^\/api/, ''), // 如果后端接口不需要/api前缀，可以重写路径
+        //         secure: false, // 如果目标服务器是HTTPS且证书不受信任，则设置为false以允许连接
+        //         headers: {
+        //             // 可选：添加自定义请求头
+        //             'X-Custom-Header': 'value'
+        //         }
+        //     }
+        // }
     },
     plugins: [
         vue(),
