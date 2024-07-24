@@ -4,10 +4,10 @@ module.exports = {
   webpack: (config) => {
     config.output.library = `${name}-[name]`;
     config.output.libraryTarget = "umd";
-    config.output.jsonpFunction = `webpackJsonp_${name}`;
+    // config.output.jsonpFunction = `webpackJsonp_${name}`;
 
     // webpack 5 需要把 jsonpFunction 替换成 chunkLoadingGlobal
-    // config.output.chunkLoadingGlobal = `webpackJsonp_${name}`;
+    config.output.chunkLoadingGlobal = `webpackJsonp_${name}`;
     config.output.globalObject = "window";
 
     return config;
