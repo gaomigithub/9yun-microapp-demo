@@ -47,7 +47,18 @@ registerMicroApps([
         container: '#sub-app-vue-container',
         activeRule: '/microapp/vue',
         props: {
+            routerBase: '/microapp/vue',
             data: 'Hello Vue Subapp -from mainApp'
+        }
+    },
+    {
+        name: 'react-qiankun-sub',
+        entry: '//localhost:3000',
+        container: '#sub-app-react-container',
+        activeRule: '/microapp/react',
+        props: {
+            routerBase: '/microapp/react',
+            data: 'Hello React Subapp -from mainApp'
         }
     }
 ])
